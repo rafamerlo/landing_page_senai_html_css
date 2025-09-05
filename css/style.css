@@ -6,4 +6,36 @@
   box-sizing: border-box;
 }
 
-/* Continuar digitação código CSS (deste ponto) */
+/* ======================= VARIÁVEIS DE TEMA (RAIZ) ======================= */
+/* Define as cores e fontes principais para fácil manutenção */
+:root {
+  --cor-primaria: #F9003D;  /* Vermelho SENAI */
+  --cor-secundaria: #A259F7;  /* Roxo Senai */
+  --cor-destaque: #FFAF00;    /* Amarelo SENAI */
+  --fundo-escuro: #080324;  /* Fundo escuro principal */
+  --texto-claro: #FFFFFF; /* Branco*/
+  --texto-cinza: #C7BAB3;  /* Cinza claro */
+}
+
+/* ======================= ESTILOS GERAIS ======================= */
+body {
+  background-color: var(--fundo-escuro);
+  color: var(--texto-claro);
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+/* Estilo para a tag <address> para remover o itálico padrão do navegador */
+address {
+  font-style: normal;
+}
+
+/* Container flex do cabeçalho */
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+  gap: 1rem;
+}
