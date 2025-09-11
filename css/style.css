@@ -1,4 +1,4 @@
-/* ======================= RESET BÁSICO ======================= */
+/* ======================= RESET Básico ======================= */
 /* Remove margens e paddings padrão e ajusta o box-sizing */
 * {
   margin: 0;
@@ -9,12 +9,12 @@
 /* ======================= VARIÁVEIS DE TEMA (RAIZ) ======================= */
 /* Define as cores e fontes principais para fácil manutenção */
 :root {
-  --cor-primaria: #F9003D;  /* Vermelho SENAI */
-  --cor-secundaria: #A259F7;  /* Roxo Senai */
-  --cor-destaque: #FFAF00;    /* Amarelo SENAI */
-  --fundo-escuro: #080324;  /* Fundo escuro principal */
-  --texto-claro: #FFFFFF; /* Branco*/
-  --texto-cinza: #C7BAB3;  /* Cinza claro */
+  --cor-primaria: #F9003D;   /* Vermelho SENAI */
+  --cor-secundaria: #A259F7; /* Roxo SENAI */
+  --cor-destaque: #FFAF00;   /* Amarelo SENAI */
+  --fundo-escuro: #080324;   /* Fundo escuro principal */
+  --texto-claro: #FFFFFF;    /* Branco */
+  --texto-cinza: #C7BAB3;    /* Cinza claro */
 }
 
 /* ======================= ESTILOS GERAIS ======================= */
@@ -31,16 +31,18 @@ address {
   font-style: normal;
 }
 
-.container{
+/* Container padrão para centralizar o conteúdo */
+.container {
   width: 85%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 0;
 }
 
+/* ======================= CABEÇALHO ======================= */
 .header {
   background-color: var(--cor-primaria);
-  position: fixed;
+  position: fixed; /* Mantém o cabeçalho no topo da tela */
   width: 100%;
   z-index: 10;
   padding: 0.5rem 0;
@@ -51,22 +53,19 @@ address {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
   gap: 1rem;
 }
 
 .logo {
   height: 40px;
-  grid-area: logo;
 }
 
-/* Menu de Navegação */
+/* Menu de navegação */
 .menu {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   list-style: none; /* Remove os marcadores da lista */
-  grid-area: menu;
-  justify-self: end;
 }
 
 .menu a {
@@ -84,7 +83,7 @@ address {
 /* Botão "Contate-nos" */
 .botao {
   background-color: var(--cor-secundaria);
-  color: var(--texto-claro) !important;
+  color: var(--texto-claro) !important; /* !important para sobrescrever a cor do link */
   padding: 0.6rem 1.5rem;
   border-radius: 5px;
   font-weight: 700;
@@ -95,20 +94,20 @@ address {
 .botao:hover {
   background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-destaque));
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  transform: translateY(-2px) scale(1.05);
+  transform: translateY(-2px) scale(1.05); /* Efeito de elevação */
 }
 
 /* ======================= BANNER PRINCIPAL ======================= */
 .banner {
-  background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2))
-  , url("../assets/imagem-fundo-banner.jpg");
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+              url("../assets/imagem-fundo-banner.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100vh; /* Ocupa a altura inteira da tela */
- display: flex;
- align-items: center;
- text-align: center;
- padding-top: 60px; /* Espaço para o header fixo */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px; /* Espaço para o header fixo */
 }
 
 .conteudo-banner h1 {
@@ -130,7 +129,7 @@ address {
 }
 
 .mouse {
-   width: 60px;
+  width: 60px;
   margin-top: 2rem;
   opacity: 0.8;
 }
@@ -147,31 +146,27 @@ address {
   margin-bottom: 2rem;
   text-align: center;
 }
-.conteudo-banner {
-  /* display: flex; */
-  gap: 3rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
 
 /* Container flex para organizar imagem e texto lado a lado */
 .conteudo-sobre {
-  display: grid;
-  grid-template-areas: "imagem-area texto-area";
-  grid-template-columns: 45% 1fr;
+  display: flex;
   gap: 3rem;
   align-items: center;
+  flex-wrap: wrap; /* Adicionado para garantir a quebra em telas menores */
 }
 
 .imagem-sobre {
+  width: 45%;
   border-radius: 10px;
-  width: 100%;
-  height: auto;
-  grid-area: imagem-area;
+  /* Adicionado para evitar que a imagem encolha demais */
+  min-width: 300px; 
+  flex: 1; /* Permite que os itens cresçam e ocupem o espaço */
 }
 
 .texto-sobre {
-  grid-area: texto-area;
+  width: 50%;
+  min-width: 300px;
+  flex: 1;
 }
 
 .destaque {
@@ -191,7 +186,7 @@ address {
   font-size: 1.2rem;
 }
 
-/* ======================= SEÇÃO DE INFORMAÇÕES (CARDS ======================= */
+/* ======================= SEÇÃO DE INFORMAÇÕES (CARDS) ======================= */
 .info {
   padding: 4rem 0;
   text-align: center;
@@ -204,7 +199,7 @@ address {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permite que os cards quebrem a linha */
 }
 
 /* Estilização de cada item da lista (LI) como um card */
@@ -231,31 +226,31 @@ address {
 }
 
 /* ======================= SEÇÃO ENDEREÇO ======================= */
-.endereco {
-  padding: 4rem 0;
-}
+ .endereco {
+   padding: 4rem 0;
+ }
 
-/* Conatiner flex para organizar o texto do endereço e o mapa */
-.conteudo-endereco {
-   display: grid;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
+ /* Container flex para organizar o texto do endereço e o mapa */
+ .conteudo-endereco {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 1rem;
+   flex-wrap: wrap; /* Garante a quebra de linha */
+   gap: 2rem; /* Adicionado para espaçamento consistente */
+ }
 
-.texto-endereco {
-  font-size: 1.3rem;
-  line-height: 1.8;
-  flex-grow: 1; /* Permite que o etxto cresça se houver espaço */
-}
+ .texto-endereco {
+   font-size: 1.3rem;
+   line-height: 1.8;
+   flex-grow: 1; /* Permite que o texto cresça se houver espaço */
+ }
 
-.mapa {
-  width: 350px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3)
-}
+ .mapa {
+   width: 350px;
+   border-radius: 10px;
+   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+ }
 
 /* ======================= RODAPÉ ======================= */
 .footer {
@@ -276,7 +271,7 @@ address {
   .menu {
     padding-top: 0;
   }
-
+  
   /* Coloca os elementos das seções um abaixo do outro */
   .conteudo-sobre,
   .conteudo-endereco {
@@ -287,26 +282,26 @@ address {
   /* Faz a imagem e o texto ocuparem toda a largura */
   .imagem-sobre,
   .texto-sobre {
-    width: 100%; /* Garante que ocupem 100% do container */
+     width: 100%; /* Garante que ocupem 100% do container */
   }
-
-  /* Centraliza o texto do endereço quando ele está em coluna*/
+  
+  /* Centraliza o texto do endereço quando ele está em coluna */
   .conteudo-endereco {
     text-align: center;
   }
 
   /* Reduz o tamanho das fontes para melhor legibilidade */
-  .conteudo-banner h1 { font-size: 3.5rem; } 
+  .conteudo-banner h1 { font-size: 3.5rem; }
   .subtitulo { font-size: 1.5rem; }
   .titulo-secao { font-size: 2.5rem; }
   .texto-sobre h3 { font-size: 2rem; }
   .texto-sobre p { font-size: 1.1rem; }
   .card h3 { font-size: 1.5rem; }
   .card p { font-size: 1.3rem; }
-  .texto-endereco {font-size: 1.1rem; }
+  .texto-endereco { font-size: 1.1rem; }
 
   /* Faz o mapa ocupar 100% da largura do container */
   .mapa {
-    width: 100%;
+     width: 100%;
   }
 }
